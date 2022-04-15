@@ -1,6 +1,6 @@
 asgiref==3.2.10
 Django==3.0.7
 django-cors-headers==3.4.0
-pkg-resources==0.0.0
+#pkg-resources==0.0.0 #I think this is a bug, wouldn't let me install the rest of requirements until I removed it. Google shows others with same problem: https://stackoverflow.com/questions/38992194/why-does-pip-freeze-list-pkg-resources-0-0-0
 pytz==2020.1
 sqlparse==0.3.1
