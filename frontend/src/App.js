@@ -32,6 +32,24 @@ function App() {
     fetchUsers();
   }, []);
 
+  //sends a post request to users/add/ to store the new user in the db 
+  const submitHandler = (e) => {
+      const newUser = document.getElementById("newUser").value;
+      try {
+        fetch(url + "/users/add/", {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({"name": newUser})
+          ,
+        })} catch (error) {return error}
+
+      //display updated db entries 
+      return false;
+    };
+
+
   return (
     <div className="App">
       <header className="App-header">
@@ -44,6 +62,13 @@ function App() {
             ))}
           </ul>
         )}
+        <div>
+          <form onSubmit={submitHandler}>
+            <p>Add User</p>
+            <input name="userName" type="text" placeholder="Enter name" id="newUser" required></input> 
+            <button type="submit">Add</button>
+          </form>
+        </div>
       </header>
     </div>
   );
